@@ -8,3 +8,8 @@ vscode/
 # Python cache
 __pycache__/
 *.pyc
+
+# Some python scripts
+test.py
+temp.py
+tmp.py
