@@ -2,6 +2,14 @@
 vscode/
 .idea/
 
+# Jupyter stuff
+.ipynb_checkpoints/
+
 # Python cache
 __pycache__/
 *.pyc
+
+# Some python scripts
+test.py
+temp.py
+tmp.py
