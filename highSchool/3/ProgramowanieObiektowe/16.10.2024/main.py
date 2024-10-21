@@ -2,6 +2,11 @@ baza_kontaktow = {
     # name: number
 }
 
+def get_contact(query: str) -> tuple[str, str]:
+    for (name, num) in baza_kontaktow.items():
+        if name.lower() == query.lower():
+          return name, num
+
 class Option:
   def __init__(self, display: str):
     self.display = display
