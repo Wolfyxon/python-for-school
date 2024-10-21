@@ -2,10 +2,15 @@ baza_kontaktow = {
     # name: number
 }
 
-def get_contact(query: str) -> tuple[str, str]:
+class Contact:
+    def __init__(self, name: str, number: str):
+        self.name = name
+        self.number = number
+
+def get_contact(query: str) -> Contact:
     for (name, num) in baza_kontaktow.items():
         if name.lower() == query.lower():
-            return name, num
+            return Contact(name, num)
 
 class Option:
     def __init__(self, display: str):
@@ -27,33 +32,33 @@ class New(Option):
 
 class Search(Option):
     def handler(self):
-        name, num = get_contact(input("Podaj nazwę kontaktu do wyszukania: "))
+        contact = get_contact(input("Podaj nazwę kontaktu do wyszukania: "))
 
-        if name:
-            print("Numer telefonu:", num)
+        if contact:
+            print("Numer telefonu:", contact.number)
         else:
             print("Nie znaleziono kontaktu")
 
 class Update(Option):
     def handler(self):
-        (name, _num) = get_contact(input("Podaj nazwę kontaktu: "))
+        contact = get_contact(input("Podaj nazwę kontaktu: "))
 
-        if not name:
+        if not contact:
             return print("Kontakt nie istnieje")
 
         num = input("Podaj nowy numer telefonu: ")
 
-        baza_kontaktow[name] = num
+        baza_kontaktow[contact.name] = num
         print("Kontakt zaktualizowany!")
 
 class Delete(Option):
     def handler(self):
-        (name, _num) = get_contact(input("Podaj nazwę kontaktu do usunięcia: "))
+        contact = get_contact(input("Podaj nazwę kontaktu do usunięcia: "))
 
-        if not name:
+        if not contact:
             return print("Kontakt nie istnieje")
 
-        del baza_kontaktow[name]
+        del baza_kontaktow[contact.name]
         print("Kontakt usunięty!")
 
 class Exit(Option):
