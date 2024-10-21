@@ -14,8 +14,19 @@ class Exit(Option):
       print("żegnaj")
       exit()
 
+class New(Option):
+  def handler(self):
+    name = input("Podaj imię nowego kontaktu: ")
+    num = input("Podaj numer telefonu: ")
+
+    if name in baza_kontaktow:
+      return print("Kontakt już istnieje")
+
+    baza_kontaktow[name] = num
+    print("Kontakt dodany!")
+
 options = [
-    Option("Dodaj nowy kontakt"),
+    New("Dodaj nowy kontakt"),
     Option("Wyszukaj kontakt"),
     Option("Zaktualizuj numer telefonu"),
     Option("Usuń kontakt"),
