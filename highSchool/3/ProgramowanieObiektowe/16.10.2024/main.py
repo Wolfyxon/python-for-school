@@ -72,7 +72,6 @@ options = [
 ]
 
 def main():
-    print()
     for i in range(len(options)):
         print(f"{i + 1}. {options[i].display}")
 
@@ -89,6 +88,7 @@ def main():
     except ValueError:
         print("Niepoprawna liczba")
 
+    print()
     main()
 
 main()
