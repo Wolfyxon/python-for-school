@@ -3,8 +3,8 @@ baza_kontaktow = {
 }
 
 class Option:
-  def __init__(self, id: str, display: str):
-    self.id = id
+  def __init__(self, name: str, display: str):
+    self.name = name
     self.display = display
 
 options = [
@@ -27,7 +27,7 @@ def main():
       print("Nieznana opcja")
       return main()
 
-    match options[opt_id - 1].id:
+    match options[opt_id - 1].name:
       case "exit":
         print("żegnaj")
         return
