@@ -3,8 +3,7 @@ baza_kontaktow = {
 }
 
 class Option:
-  def __init__(self, name: str, display: str):
-    self.name = name
+  def __init__(self, display: str):
     self.display = display
 
   def handler(self):
@@ -16,11 +15,11 @@ class Exit(Option):
       exit()
 
 options = [
-    Option("new", "Dodaj nowy kontakt"),
-    Option("search", "Wyszukaj kontakt"),
-    Option("update", "Zaktualizuj numer telefonu"),
-    Option("delete", "Usuń kontakt"),
-    Exit("exit", "Zakończ program")
+    Option("Dodaj nowy kontakt"),
+    Option("Wyszukaj kontakt"),
+    Option("Zaktualizuj numer telefonu"),
+    Option("Usuń kontakt"),
+    Exit("Zakończ program")
 ]
 
 def main():
