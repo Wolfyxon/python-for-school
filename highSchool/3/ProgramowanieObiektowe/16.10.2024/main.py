@@ -34,6 +34,7 @@ class Delete(Option):
       return
     
     baza_kontaktow[name] = None
+    print("Kontakt usunięty!")
 
 class Update(Option):
   def handler(self):
