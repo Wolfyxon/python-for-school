@@ -19,7 +19,7 @@ class New(Option):
     name = input("Podaj imię nowego kontaktu: ")
     num = input("Podaj numer telefonu: ")
 
-    if name in baza_kontaktow:
+    if get_contact(name):
       return print("Kontakt już istnieje")
 
     baza_kontaktow[name] = num
@@ -27,20 +27,18 @@ class New(Option):
 
 class Search(Option):
   def handler(self):
-    query = input("Podaj nazwę kontaktu do wyszukania: ")
+    name, num = get_contact(input("Podaj nazwę kontaktu do wyszukania: "))
 
-    for (name, num) in baza_kontaktow.items():
-      if name.lower() == query.lower():
-        print("Numer telefonu:", num)
-        return
-
-    print("Nie znaleziono kontaktu")
+    if name:
+      print("Numer telefonu:", num)
+    else:
+        print("Nie znaleziono kontaktu")
 
 class Update(Option):
   def handler(self):
     name = input("Podaj nazwę kontaktu: ")
 
-    if not name in baza_kontaktow:
+    if not get_contact(name):
       print("Kontakt nie istnieje")
       return
     
@@ -51,9 +49,9 @@ class Update(Option):
 
 class Delete(Option):
   def handler(self):
-    name = input("Podaj nazwę kontaktu do usunięcia: ")
+    (name, _num) = get_contact(input("Podaj nazwę kontaktu do usunięcia: "))
 
-    if not name in baza_kontaktow:
+    if not name:
       print("Kontakt nie istnieje")
       return
     
