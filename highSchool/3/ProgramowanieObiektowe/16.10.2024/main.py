@@ -36,9 +36,9 @@ class Search(Option):
 
 class Update(Option):
     def handler(self):
-        name = input("Podaj nazwę kontaktu: ")
+        (name, _num) = get_contact(input("Podaj nazwę kontaktu: "))
 
-        if not get_contact(name):
+        if not name:
             return print("Kontakt nie istnieje")
 
         num = input("Podaj nowy numer telefonu: ")
