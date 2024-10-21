@@ -37,7 +37,7 @@ def main():
 
     options[opt_id - 1].handler()
 
-  except:
+  except ValueError:
     print("Niepoprawna liczba")
 
   main()
