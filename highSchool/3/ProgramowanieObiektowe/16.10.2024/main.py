@@ -39,8 +39,7 @@ class Update(Option):
         name = input("Podaj nazwę kontaktu: ")
 
         if not get_contact(name):
-            print("Kontakt nie istnieje")
-            return
+            return print("Kontakt nie istnieje")
 
         num = input("Podaj nowy numer telefonu: ")
 
@@ -52,8 +51,7 @@ class Delete(Option):
         (name, _num) = get_contact(input("Podaj nazwę kontaktu do usunięcia: "))
 
         if not name:
-            print("Kontakt nie istnieje")
-            return
+            return print("Kontakt nie istnieje")
 
         del baza_kontaktow[name]
         print("Kontakt usunięty!")
