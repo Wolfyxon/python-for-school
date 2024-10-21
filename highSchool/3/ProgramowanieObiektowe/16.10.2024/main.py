@@ -49,9 +49,20 @@ class Update(Option):
     baza_kontaktow[name] = num
     print("Kontakt zaktualizowany!")
 
+class Search(Option):
+  def handler(self):
+    query = input("Podaj nazwę kontaktu do wyszukania: ")
+
+    for name in baza_kontaktow:
+      if name.lower() == query.lower():
+        print("Numer telefonu:", baza_kontaktow[name])
+        return
+
+    print("Nie znaleziono kontaktu")
+
 options = [
     New("Dodaj nowy kontakt"),
-    Option("Wyszukaj kontakt"),
+    Search("Wyszukaj kontakt"),
     Update("Zaktualizuj numer telefonu"),
     Delete("Usuń kontakt"),
     Exit("Zakończ program")
