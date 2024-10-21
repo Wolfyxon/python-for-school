@@ -55,6 +55,7 @@ def main():
       print("Nieznana opcja")
       return main()
 
+    print()
     options[opt_id - 1].handler()
 
   except ValueError:
