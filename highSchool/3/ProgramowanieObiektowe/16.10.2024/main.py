@@ -35,10 +35,23 @@ class Delete(Option):
     
     baza_kontaktow[name] = None
 
+class Update(Option):
+  def handler(self):
+    name = input("Podaj nazwę kontaktu: ")
+
+    if not name in baza_kontaktow:
+      print("Kontakt nie istnieje")
+      return
+    
+    num = input("Podaj nowy numer telefonu: ")
+
+    baza_kontaktow[name] = num
+    print("Kontakt zaktualizowany!")
+
 options = [
     New("Dodaj nowy kontakt"),
     Option("Wyszukaj kontakt"),
-    Option("Zaktualizuj numer telefonu"),
+    Update("Zaktualizuj numer telefonu"),
     Delete("Usuń kontakt"),
     Exit("Zakończ program")
 ]
