@@ -9,11 +9,6 @@ class Option:
   def handler(self):
     raise NotImplementedError()
 
-class Exit(Option):
-    def handler(self):
-      print("żegnaj")
-      exit()
-
 class New(Option):
   def handler(self):
     name = input("Podaj imię nowego kontaktu: ")
@@ -25,16 +20,16 @@ class New(Option):
     baza_kontaktow[name] = num
     print("Kontakt dodany!")
 
-class Delete(Option):
+class Search(Option):
   def handler(self):
-    name = input("Podaj nazwę kontaktu do usunięcia: ")
+    query = input("Podaj nazwę kontaktu do wyszukania: ")
 
-    if not name in baza_kontaktow:
-      print("Kontakt nie istnieje")
-      return
-    
-    baza_kontaktow[name] = None
-    print("Kontakt usunięty!")
+    for name in baza_kontaktow:
+      if name.lower() == query.lower():
+        print("Numer telefonu:", baza_kontaktow[name])
+        return
+
+    print("Nie znaleziono kontaktu")
 
 class Update(Option):
   def handler(self):
@@ -49,16 +44,21 @@ class Update(Option):
     baza_kontaktow[name] = num
     print("Kontakt zaktualizowany!")
 
-class Search(Option):
+class Delete(Option):
   def handler(self):
-    query = input("Podaj nazwę kontaktu do wyszukania: ")
+    name = input("Podaj nazwę kontaktu do usunięcia: ")
 
-    for name in baza_kontaktow:
-      if name.lower() == query.lower():
-        print("Numer telefonu:", baza_kontaktow[name])
-        return
+    if not name in baza_kontaktow:
+      print("Kontakt nie istnieje")
+      return
+    
+    baza_kontaktow[name] = None
+    print("Kontakt usunięty!")
 
-    print("Nie znaleziono kontaktu")
+class Exit(Option):
+    def handler(self):
+      print("żegnaj")
+      exit()
 
 options = [
     New("Dodaj nowy kontakt"),
