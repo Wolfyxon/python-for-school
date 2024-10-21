@@ -24,9 +24,9 @@ class Search(Option):
   def handler(self):
     query = input("Podaj nazwę kontaktu do wyszukania: ")
 
-    for name in baza_kontaktow:
+    for (name, num) in baza_kontaktow.items():
       if name.lower() == query.lower():
-        print("Numer telefonu:", baza_kontaktow[name])
+        print("Numer telefonu:", num)
         return
 
     print("Nie znaleziono kontaktu")
