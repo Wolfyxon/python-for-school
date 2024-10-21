@@ -52,7 +52,7 @@ class Delete(Option):
       print("Kontakt nie istnieje")
       return
     
-    baza_kontaktow[name] = None
+    del baza_kontaktow[name]
     print("Kontakt usunięty!")
 
 class Exit(Option):
