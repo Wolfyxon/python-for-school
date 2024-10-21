@@ -7,12 +7,20 @@ class Option:
     self.name = name
     self.display = display
 
+  def handler(self):
+    raise NotImplementedError()
+
+class Exit(Option):
+    def handler(self):
+      print("żegnaj")
+      exit()
+
 options = [
     Option("new", "Dodaj nowy kontakt"),
     Option("search", "Wyszukaj kontakt"),
     Option("update", "Zaktualizuj numer telefonu"),
     Option("delete", "Usuń kontakt"),
-    Option("exit", "Zakończ program")
+    Exit("exit", "Zakończ program")
 ]
 
 def main():
@@ -27,10 +35,7 @@ def main():
       print("Nieznana opcja")
       return main()
 
-    match options[opt_id - 1].name:
-      case "exit":
-        print("żegnaj")
-        return
+    options[opt_id - 1].handler()
 
   except:
     print("Niepoprawna liczba")
