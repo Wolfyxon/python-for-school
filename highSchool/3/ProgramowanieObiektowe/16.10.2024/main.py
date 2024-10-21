@@ -25,11 +25,21 @@ class New(Option):
     baza_kontaktow[name] = num
     print("Kontakt dodany!")
 
+class Delete(Option):
+  def handler(self):
+    name = input("Podaj nazwę kontaktu do usunięcia: ")
+
+    if not name in baza_kontaktow:
+      print("Kontakt nie istnieje")
+      return
+    
+    baza_kontaktow[name] = None
+
 options = [
     New("Dodaj nowy kontakt"),
     Option("Wyszukaj kontakt"),
     Option("Zaktualizuj numer telefonu"),
-    Option("Usuń kontakt"),
+    Delete("Usuń kontakt"),
     Exit("Zakończ program")
 ]
 
