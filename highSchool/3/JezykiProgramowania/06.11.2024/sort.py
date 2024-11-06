@@ -1,5 +1,5 @@
 from typing import Callable
-from time import time, sleep
+from time import time
 
 nums_str = input("Podaj liczby do posortowania: ")
 nums = []
