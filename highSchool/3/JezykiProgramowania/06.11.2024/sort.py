@@ -64,5 +64,33 @@ def bubble(nums):
         if sorted:
             break    
 
+
+def insertion(nums):
+    while True:
+        sorted = True
+
+        for i in range(ln):
+            sorted = True
+
+            prev_idx = i - 1
+
+            if prev_idx < 0:
+                sorted = False
+                continue
+
+            if nums[i] < nums[prev_idx]:
+                prev = nums[prev_idx]
+                current = nums[i]
+
+                nums[i] = prev
+                nums[prev_idx] = current
+
+                sorted = False
+                break
+
+        if sorted:
+            break    
+
 sort("wybierające", selection)
 sort("bąbelkowe", bubble)
+sort("wstawiające", insertion)
