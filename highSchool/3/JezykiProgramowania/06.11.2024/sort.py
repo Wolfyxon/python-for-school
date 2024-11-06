@@ -9,7 +9,7 @@ for i in nums_str.split(" "):
         n = float(i)
         nums.append(n)
 
-    except TypeError:
+    except ValueError:
         print(f"'{f}' to nie liczba")
         exit(1)
 
