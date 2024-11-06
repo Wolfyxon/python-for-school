@@ -31,7 +31,7 @@ def sort(name: str, callback: Callable):
     print(f"Sortowanie {name} zajęło: {time} sekund.")
     print(cloned)
 
-def idk(nums):
+def selection(nums):
     for i in range(ln):
         min_v = min(nums[i:ln])
         min_idx = nums.index(min_v)
@@ -64,5 +64,5 @@ def bubble(nums):
         if sorted:
             break    
 
-sort("nie wiem", idk)
+sort("wybierające", selection)
 sort("bąbelkowe", bubble)
