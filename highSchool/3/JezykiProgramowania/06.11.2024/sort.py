@@ -1,5 +1,5 @@
 from typing import Callable
-from datetime import datetime
+from time import time, sleep
 
 nums_str = input("Podaj liczby do posortowania: ")
 nums = []
@@ -22,13 +22,13 @@ if ln <= 1:
 print()
 
 def sort(name: str, callback: Callable):
-    start = datetime.now()
+    start = time()
 
     cloned = nums.copy()
     callback(cloned)
 
-    time = datetime.now() - start
-    print(f"Sortowanie {name} zajęło: {time} sekund.")
+    duration = time() - start
+    print(f"Sortowanie {name} zajęło: {duration} sekund.")
     print(cloned)
 
 def selection(nums):
