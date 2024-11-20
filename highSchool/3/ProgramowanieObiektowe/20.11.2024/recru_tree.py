@@ -12,7 +12,7 @@ def style(s: str, code: int) -> str:
     return ansi(code) + s + ansi(0)
 
 def unstyle(s: str) -> str:
-    return re.sub("(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]", "", s)
+    return re.sub(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]', "", s)
 
 def printCen(s: str):
     space = " " * ((width - len(unstyle(s))) // 2)
