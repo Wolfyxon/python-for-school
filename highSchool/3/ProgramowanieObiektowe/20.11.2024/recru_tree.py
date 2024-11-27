@@ -1,6 +1,8 @@
 import random
 import re
 
+lines = []
+
 width = 100
 init_w = 4
 leaves_height = width - 1
@@ -14,10 +16,10 @@ def style(s: str, code: int) -> str:
 def unstyle(s: str) -> str:
     return re.sub(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]', "", s)
 
-def printCen(s: str):
+def addCen(s: str):
     space = " " * ((width - len(unstyle(s))) // 2)
 
-    print(space + s)
+    lines.append(space + s)
 
 def leaves(w: int = 1, max_w: int = init_w):
     if w > max_w:
@@ -38,15 +40,18 @@ def leaves(w: int = 1, max_w: int = init_w):
             else:
                 row += style("*", 32)
 
-    printCen(row)
+    addCen(row)
     leaves(w + 2, max_w)
 
 def trunk(i: int = 1):
     if i > 2: return
 
-    printCen(style("|||", 31))
+    addCen(style("|||", 31))
     trunk(i + 1)
 
-printCen(style("X", 33))
+addCen(style("X", 33))
 leaves()
 trunk()
+
+for line in lines:
+    print(line)
