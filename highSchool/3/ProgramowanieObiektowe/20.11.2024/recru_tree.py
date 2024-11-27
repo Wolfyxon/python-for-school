@@ -49,6 +49,8 @@ def trunk(i: int = 1):
     addCen(style("|||", 31))
     trunk(i + 1)
 
+for i in range(4): addCen("")
+
 addCen(style("X", 33))
 leaves()
 trunk()
