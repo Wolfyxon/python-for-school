@@ -1,7 +1,7 @@
 import random
 import re
 
-width = 20
+width = 100
 init_w = 4
 leaves_height = width - 1
 
@@ -24,7 +24,7 @@ def leaves(w: int = 1, max_w: int = init_w):
         w = 4
         max_w += 5
 
-    if max_w > width:
+    if max_w > 20:
         return
     
     row = ""
