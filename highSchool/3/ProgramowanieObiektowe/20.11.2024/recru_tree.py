@@ -26,7 +26,7 @@ def leaves(w: int = 1, max_w: int = init_w):
         w = 4
         max_w += 5
 
-    if max_w > 20:
+    if max_w > 23:
         return
     
     row = ""
