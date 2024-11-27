@@ -44,7 +44,7 @@ def leaves(w: int = 1, max_w: int = init_w):
 def trunk(i: int = 1):
     if i > 2: return
 
-    printCen(style("||", 31))
+    printCen(style("|||", 31))
     trunk(i + 1)
 
 printCen(style("X", 33))
