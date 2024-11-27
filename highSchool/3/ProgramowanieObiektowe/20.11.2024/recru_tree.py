@@ -53,5 +53,11 @@ addCen(style("X", 33))
 leaves()
 trunk()
 
-for line in lines:
-    print(line)
+for li in range(len(lines)):
+    line = list(lines[li])
+
+    for ci in range(len(line)):
+        if line[ci] == " " and random.randint(0, li + 1) == 0:
+            line[ci] = "."
+
+    print("".join(line))
