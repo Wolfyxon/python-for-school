@@ -19,7 +19,7 @@ def unstyle(s: str) -> str:
 def addCen(s: str):
     space = " " * ((width - len(unstyle(s))) // 2)
 
-    lines.append(space + s)
+    lines.append(space + s + space)
 
 def leaves(w: int = 1, max_w: int = init_w):
     if w > max_w:
