@@ -15,9 +15,20 @@ roman_nums = {
     1000: "M"
 }
 
+keys = sorted(list(roman_nums.keys()), reverse=True)
+
 arab = int(input("Podaj liczbę arabską: "))
 roman = ""
 
 if arab <= 0:
     print("Liczba musi być wieksza od 0")
     exit(1)
+
+
+while arab > 0:
+    for key in keys:
+        while arab >= key:
+            roman += roman_nums[key]
+            arab -= key
+
+print(roman)
