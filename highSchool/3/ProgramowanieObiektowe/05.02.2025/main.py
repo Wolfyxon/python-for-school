@@ -32,12 +32,12 @@ def input_book() -> Book:
     return book
 
 def input_user():
-    id = input_int("(-1 by anulować) > ")
+    user_id = input_int("(-1 by anulować) > ")
 
-    if id == -1:
+    if user_id == -1:
         return
 
-    user = lib.get_user_by_id(id)
+    user = lib.get_user_by_id(user_id)
 
     if not user:
         print("Nieznany użytkownik")

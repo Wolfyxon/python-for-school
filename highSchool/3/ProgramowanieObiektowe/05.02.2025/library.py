@@ -40,8 +40,8 @@ class Library:
 
         return res
 
-    def get_user_by_id(self, id: int) -> User:
-        return self.users[id]
+    def get_user_by_id(self, user_id: int) -> User:
+        return self.users[user_id]
 
     def get_book_by_isbn(self, isbn: int) -> Book:
         for i in self.books:
