@@ -6,7 +6,7 @@ class Book:
         self.available = True
 
     def __str__(self) -> str:
-        return f"{self.author} - {self.title} {self.isbn}"
+        return f"{self.isbn} : {self.author} - {self.title}"
 
     def borrow(self):
         assert self.available, "Attempt to borrow an unavailable book"
