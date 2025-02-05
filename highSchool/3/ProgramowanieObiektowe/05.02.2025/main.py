@@ -109,7 +109,7 @@ def borrow_book():
     list_available_books()
     print("Wybierz książkę po numerze ISBN")
     
-    book = lib.get_book_by_isbn(input_book())
+    book = input_book()
 
     if not book:
         return
