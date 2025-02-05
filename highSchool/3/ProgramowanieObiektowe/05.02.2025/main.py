@@ -48,6 +48,7 @@ def main():
     print("4. Oddaj książkę")
     print("5. Sprawdź dostępne książki")
     print("6. Wyświetl użytkowników")
+    print("7. Zakońćz")
     
     query_main()
 
@@ -65,6 +66,8 @@ def query_main():
             list_available_books()
         case "6":
             list_users()
+        case "7":
+            return
         case _:
             print("Nieznana akcja")
             return query_main()
