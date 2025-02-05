@@ -6,17 +6,17 @@ class Library:
         self.books = []
         self.users = []
 
-    def add_book(book: Book):
+    def add_book(self, book: Book):
         self.books.append(book)
     
-    def register_user(user: User):
+    def register_user(self, user: User):
         user.user_id = len(self.users)
         self.users.append(user)
 
-    def borrow_book(user_id: int, isbn: int):
+    def borrow_book(self, user_id: int, isbn: int):
         pass
 
-    def return_book(user_id: int, isbn: int):
+    def return_book(self, user_id: int, isbn: int):
         pass
 
     def get_available_books(self) -> list[Book]: # list_available_books()
