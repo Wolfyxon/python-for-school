@@ -14,10 +14,22 @@ class Library:
         self.users.append(user)
 
     def borrow_book(self, user_id: int, isbn: int):
-        pass
+        user = self.get_user_by_id(user_id)
+        book = self.get_book_by_isbn(isbn)
+
+        assert user, "User not found"
+        assert book, "Book not found"
+
+        user.borrow_book(book)
 
     def return_book(self, user_id: int, isbn: int):
-        pass
+        user = self.get_user_by_id(user_id)
+        book = self.get_book_by_isbn(isbn)
+
+        assert user, "User not found"
+        assert book, "Book not found"
+
+        user.return_book(book)
 
     def get_available_books(self) -> list[Book]: # list_available_books()
         res = []
