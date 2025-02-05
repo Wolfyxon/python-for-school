@@ -1,6 +1,6 @@
 from book import Book
 from user import User
-from library import Library 
+from library import Library
 
 lib = Library()
 
@@ -38,8 +38,8 @@ def input_user():
         return
 
     user = lib.get_user_by_id(id)
-    
-    if not user: 
+
+    if not user:
         print("Nieznany użytkownik")
         return input_user()
 
@@ -47,7 +47,7 @@ def input_user():
 
 def main():
     print("Witaj w bibliotece, co chcesz zrobić?")
-    
+
     print("1. Zarejestruj użytkownika")
     print("2. Dodaj książkę")
     print("3. Wypożycz książkę")
@@ -55,7 +55,7 @@ def main():
     print("5. Sprawdź dostępne książki")
     print("6. Wyświetl użytkowników")
     print("7. Zakońćz")
-    
+
     query_main()
 
 def query_main():
@@ -82,7 +82,7 @@ def query_main():
 
 def register_user():
     print("Podaj nazwę użytkownika, lub nic by wrócić")
-    
+
     name = input("> ")
 
     if name == "":
@@ -108,7 +108,7 @@ def add_book():
 def borrow_book():
     list_available_books()
     print("Wybierz książkę po numerze ISBN")
-    
+
     book = input_book()
 
     if not book:
@@ -157,7 +157,7 @@ def return_book():
 
 def list_users():
     print("Użytkownicy:")
-    
+
     for i in range(len(lib.users)):
         print(f"{i} {lib.users[i]}")
 
@@ -165,14 +165,14 @@ def list_users():
 
 def list_available_books():
     print("Dostępne książki:")
-    
+
     books = lib.get_available_books()
 
     for i in range(len(books)):
         book = books[i]
-        
+
         print(f"{i}. {book}")
-    
+
     print("")
 
 main()

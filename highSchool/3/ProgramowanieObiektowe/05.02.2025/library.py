@@ -8,7 +8,7 @@ class Library:
 
     def add_book(self, book: Book):
         self.books.append(book)
-    
+
     def register_user(self, user: User):
         user.user_id = len(self.users)
         self.users.append(user)
