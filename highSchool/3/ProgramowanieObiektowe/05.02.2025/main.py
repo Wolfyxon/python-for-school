@@ -6,7 +6,7 @@ lib = Library()
 
 def input_int(query: str) -> int:
     try:
-        return (int) input(query)
+        return int(input(query))
     except ValueError:
         print("Nieprawidłowa liczba")
         return input_int(query)
