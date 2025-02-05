@@ -126,7 +126,7 @@ def borrow_book():
     if not user:
         return
 
-    lib.borrow_book(user.user_id, book.isbn)
+    user.borrow_book(book)
 
 def return_book():
     list_users()
