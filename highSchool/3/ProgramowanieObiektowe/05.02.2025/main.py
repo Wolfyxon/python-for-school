@@ -4,6 +4,12 @@ from library import Library
 
 lib = Library()
 
+lib.books = [
+    Book("Pan Tadeusz", "Adam Mickiewicz", 9788307033419),
+    Book("Wybór bajek i satyr Krasickiego z oprac. okleina", "Ignacy Krasicki", 9788375178555),
+    Book("Felix, Net i Nika oraz Gang Niewidzialnych Ludzi", "Rafał Kosik", 788364384134)
+]
+
 def input_int(query: str) -> int:
     try:
         return int(input(query))
