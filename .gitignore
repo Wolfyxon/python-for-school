@@ -13,3 +13,6 @@ __pycache__/
 test.py
 temp.py
 tmp.py
+
+# Other
+*.zip
