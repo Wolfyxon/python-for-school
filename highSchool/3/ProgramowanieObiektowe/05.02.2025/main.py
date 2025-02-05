@@ -58,7 +58,7 @@ def query_main():
         case "2":
             add_book()
         case "3":
-            pass
+            borrow_book()
         case "4":
             pass
         case "5":
@@ -97,16 +97,27 @@ def add_book():
     print("Książka dodana pomyślnie")
 
 def borrow_book():
+    list_available_books()
     print("Wybierz książkę po numerze ISBN")
     
-    list_available_books()
-    book = get_book_by_isbn()
+    book = lib.get_book_by_isbn(input_book())
 
-    if not book: 
+    if not book:
         return
 
-    
+    if not book.available:
+        print("Ta książka jest niedostępna")
+        return
 
+    list_users()
+    print("Wybierz użytkownika, który wypożycza książkę")
+
+    user = input_user()
+
+    if not user:
+        return
+
+    lib.borrow_book(user.user_id, book.isbn)
 
 def list_users():
     print("Użytkownicy:")
