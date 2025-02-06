@@ -8,21 +8,21 @@ for i in str_nums:
     except ValueError:
         print(f"'{i}' nie jest prawidłową liczbą")
 
-    sorted = False
+sorted = False
 
-    while not sorted:
-        sorted = True
+while not sorted:
+    sorted = True
 
-        for i in range(len(nums) - 1):
-            current = nums[i]
-            next = nums[i + 1]
+    for i in range(len(nums) - 1):
+        current = nums[i]
+        next = nums[i + 1]
 
-            if current > next:
-                nums[i] = next
-                nums[i + 1] = current
+        if current > next:
+            nums[i] = next
+            nums[i + 1] = current
 
-                sorted = False
+            sorted = False
 
-    print("Posortowano:")
-    print(nums)
-            
+print("Posortowano:")
+print(nums)
+        
