@@ -13,7 +13,7 @@ for i in str_nums:
     while not sorted:
         sorted = True
 
-        for i in range(len(nums - 1)):
+        for i in range(len(nums) - 1):
             current = nums[i]
             next = nums[i + 1]
 
