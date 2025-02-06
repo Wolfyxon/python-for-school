@@ -21,7 +21,7 @@ for i in str_nums:
                 nums[i] = next
                 nums[i + 1] = current
 
-                sorted = false
+                sorted = False
 
     print("Posortowano:")
     print(nums)
