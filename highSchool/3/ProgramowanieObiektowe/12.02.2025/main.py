@@ -29,3 +29,15 @@ class User:
 
         movie.zarezerwuj_miejsce()
         self.balance -= movie.ticket_cost
+
+users = [
+    User("Mr Majonez", 999),
+    User("Friderick von Fazbear", 87),
+    User("Jan", 2)
+]
+
+movies = [
+    Movie("Incenpcja", 10, 30),
+    Movie("Kopaćrzemiosło Film", 2, 35),
+    Movie("Ryba", 17, 17)
+]
