@@ -6,18 +6,30 @@ class Library:
         self.books = []
         self.users = []
 
-    def add_book(book: Book):
+    def add_book(self, book: Book):
         self.books.append(book)
-    
-    def register_user(user: User):
+
+    def register_user(self, user: User):
         user.user_id = len(self.users)
         self.users.append(user)
 
-    def borrow_book(user_id: int, isbn: int):
-        pass
+    def borrow_book(self, user_id: int, isbn: int):
+        user = self.get_user_by_id(user_id)
+        book = self.get_book_by_isbn(isbn)
 
-    def return_book(user_id: int, isbn: int):
-        pass
+        assert user, "User not found"
+        assert book, "Book not found"
+
+        user.borrow_book(book)
+
+    def return_book(self, user_id: int, isbn: int):
+        user = self.get_user_by_id(user_id)
+        book = self.get_book_by_isbn(isbn)
+
+        assert user, "User not found"
+        assert book, "Book not found"
+
+        user.return_book(book)
 
     def get_available_books(self) -> list[Book]: # list_available_books()
         res = []
@@ -28,8 +40,8 @@ class Library:
 
         return res
 
-    def get_user_by_id(self, id: int) -> User:
-        return self.users[id]
+    def get_user_by_id(self, user_id: int) -> User:
+        return self.users[user_id]
 
     def get_book_by_isbn(self, isbn: int) -> Book:
         for i in self.books:

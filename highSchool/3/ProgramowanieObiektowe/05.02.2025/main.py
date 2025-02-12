@@ -1,12 +1,18 @@
 from book import Book
 from user import User
-from library import Library 
+from library import Library
 
 lib = Library()
 
+lib.books = [
+    Book("Pan Tadeusz", "Adam Mickiewicz", 9788307033419),
+    Book("Wybór bajek i satyr Krasickiego z oprac. okleina", "Ignacy Krasicki", 9788375178555),
+    Book("Felix, Net i Nika oraz Gang Niewidzialnych Ludzi", "Rafał Kosik", 788364384134)
+]
+
 def input_int(query: str) -> int:
     try:
-        return (int) input(query)
+        return int(input(query))
     except ValueError:
         print("Nieprawidłowa liczba")
         return input_int(query)
@@ -26,14 +32,14 @@ def input_book() -> Book:
     return book
 
 def input_user():
-    id = input_int("(-1 by anulować) > ")
+    user_id = input_int("(-1 by anulować) > ")
 
-    if id == -1:
+    if user_id == -1:
         return
 
-    user = lib.get_user_by_id(id)
-    
-    if not user: 
+    user = lib.get_user_by_id(user_id)
+
+    if not user:
         print("Nieznany użytkownik")
         return input_user()
 
@@ -41,14 +47,15 @@ def input_user():
 
 def main():
     print("Witaj w bibliotece, co chcesz zrobić?")
-    
+
     print("1. Zarejestruj użytkownika")
     print("2. Dodaj książkę")
     print("3. Wypożycz książkę")
     print("4. Oddaj książkę")
     print("5. Sprawdź dostępne książki")
     print("6. Wyświetl użytkowników")
-    
+    print("7. Zakońćz")
+
     query_main()
 
 def query_main():
@@ -58,13 +65,15 @@ def query_main():
         case "2":
             add_book()
         case "3":
-            pass
+            borrow_book()
         case "4":
-            pass
+            return_book()
         case "5":
             list_available_books()
         case "6":
             list_users()
+        case "7":
+            return
         case _:
             print("Nieznana akcja")
             return query_main()
@@ -73,7 +82,7 @@ def query_main():
 
 def register_user():
     print("Podaj nazwę użytkownika, lub nic by wrócić")
-    
+
     name = input("> ")
 
     if name == "":
@@ -97,20 +106,58 @@ def add_book():
     print("Książka dodana pomyślnie")
 
 def borrow_book():
-    print("Wybierz książkę po numerze ISBN")
-    
     list_available_books()
-    book = get_book_by_isbn()
+    print("Wybierz książkę po numerze ISBN")
 
-    if not book: 
+    book = input_book()
+
+    if not book:
         return
 
-    
+    if not book.available:
+        print("Ta książka jest niedostępna")
+        return
 
+    list_users()
+    print("Wybierz użytkownika, który wypożycza książkę")
+
+    user = input_user()
+
+    if not user:
+        return
+
+    user.borrow_book(book)
+
+def return_book():
+    list_users()
+    print("Wybierz użytkownika")
+
+    user = input_user()
+
+    if not user:
+        return
+
+    if len(user.borrowed_books) == 0:
+        print("Ten użytkownik nie ma żadnych wypożyczonych książek")
+        return
+
+    for i in user.borrowed_books:
+        print(i)
+
+    book = input_book()
+
+    if not book:
+        return
+
+    if not book in user.borrowed_books:
+        print("Użytkownik nie ma tej książki")
+        return
+
+    user.return_book(book)
 
 def list_users():
     print("Użytkownicy:")
-    
+
     for i in range(len(lib.users)):
         print(f"{i} {lib.users[i]}")
 
@@ -118,14 +165,14 @@ def list_users():
 
 def list_available_books():
     print("Dostępne książki:")
-    
+
     books = lib.get_available_books()
 
     for i in range(len(books)):
         book = books[i]
-        
+
         print(f"{i}. {book}")
-    
+
     print("")
 
 main()
