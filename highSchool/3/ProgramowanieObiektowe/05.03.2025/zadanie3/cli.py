@@ -12,11 +12,11 @@ def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True
         print(f"{i + 1}) {options[i].name}")
 
     if allow_exit:
-        print(f"{ln}) Anuluj")
+        print(f"{ln + 1}) Wyjdź")
 
     selected = input_int("> ")
 
-    if allow_exit and selected == ln:
+    if allow_exit and selected == ln + 1:
         return
 
     if selected > ln or selected == 0:
