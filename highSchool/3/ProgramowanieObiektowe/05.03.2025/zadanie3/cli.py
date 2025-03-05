@@ -5,7 +5,7 @@ class Option:
     def run():
         raise "Not implemented"
 
-def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True) -> bool:
+def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True) -> Option:
     ln = len(options)
     
     for i in range(ln):
@@ -17,15 +17,16 @@ def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True
     selected = input_int("> ")
 
     if allow_exit and selected == ln:
-        return False
+        return
 
     if selected > ln or selected == 0:
         print("Niepoprawny wybór")
         return menu(options, allow_exit, False)
 
-    options[selected - 1].run()
+    opt = options[selected - 1]
+    opt.run()
 
-    return True
+    return opt
 
 def input_int(text: str) -> int:
     try:
