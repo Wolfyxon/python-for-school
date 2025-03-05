@@ -4,8 +4,8 @@ from Aircraft import Aircraft
 from Passenger import Passenger
 
 class Airport:
-    def __init__(self):
-        self.terminals = []
+    def __init__(self, terminals: list[Terminal]):
+        self.terminals = terminals
 
     def get_aircrafts(self) -> list[Aircraft]:
         res = []
