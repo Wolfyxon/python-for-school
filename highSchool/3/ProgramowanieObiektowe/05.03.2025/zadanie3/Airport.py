@@ -1,7 +1,7 @@
-from terminal import Terminal
-from flight import Flight
-from aircraft import Aircraft
-from passenger import Passenger
+from Terminal import Terminal
+from Flight import Flight
+from Aircraft import Aircraft
+from Passenger import Passenger
 
 class Airport:
     def __init__(self):
