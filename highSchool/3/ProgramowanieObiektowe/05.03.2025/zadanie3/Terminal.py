@@ -3,10 +3,10 @@ from Passenger import *
 from Aircraft import *
 
 class Terminal:
-    def __init__(self):
-        self.flights = []
-        self.passenger = []
-        self.aircrafts = []
+    def __init__(self, flights: list[Flight], passengers: list[Passenger] aircrafts: list[Aircraft]):
+        self.flights = flights
+        self.passenger = passengers
+        self.aircrafts = aircrafts
 
     def add_flight(self, f: Flight): 
         self.flights.append(f)
