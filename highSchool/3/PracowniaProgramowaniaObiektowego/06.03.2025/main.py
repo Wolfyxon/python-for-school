@@ -1,4 +1,4 @@
-def bubble_sort(nums: list[float]):
+def bubble_sort(nums: list[float]) -> list[float]:
     sorted = False
 
     while not sorted:
