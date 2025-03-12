@@ -6,7 +6,7 @@ from cli import *
 class Terminal:
     def __init__(self, flights: list[Flight], passengers: list[Passenger], aircrafts: list[Aircraft]):
         self.flights = flights
-        self.passenger = passengers
+        self.passengers = passengers
         self.aircrafts = aircrafts
 
     def add_flight(self, f: Flight): 
