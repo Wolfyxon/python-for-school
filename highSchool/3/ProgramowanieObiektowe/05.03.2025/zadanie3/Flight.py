@@ -58,7 +58,7 @@ class Flight:
 
         if self.get_seat(sid):
             print("To miejsce jest zajęte")
-            return query_reserve_seat(False)
+            return self.query_reserve_seat(False)
 
         seat = Seat(sid)
         self.occupied_seats.append(seat)
