@@ -4,3 +4,6 @@ class Passenger:
         self.second_name = second_name
         self.doc_id = doc_id
         self.ticket_class = ticket_class
+
+    def __str__(self) -> str:
+        return f"{self.first_name} {self.second_name} {self.doc_id} [{self.ticket_class}]"
