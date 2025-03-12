@@ -21,11 +21,7 @@ class User:
     def __str__(self) -> str:
         return f"{self.name} ({self.balance} zł)"
 
-    def kup_bilet(self, movie: Movie):
-        if movie.available_tickets <= 0:
-            print("Bilety wyprzedane")
-            return
-        
+    def kup_bilet(self, movie: Movie):        
         if self.balance < movie.ticket_cost:
             print("Brak wystarczających środków")
             return
@@ -105,7 +101,13 @@ def buy():
     print("Wybierz film:")
 
     movie = query_movie()
-    if not movie: return
+
+    if not movie:
+        return
+
+    if movie.available_tickets <= 0:
+        print("Bilety na ten film są wyprzedane")
+        return
 
     print("Wybierz użytkownika:")
 
