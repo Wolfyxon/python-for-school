@@ -3,6 +3,10 @@ class Option:
         self.name = name
         self.value = value
 
+class OptionStr(Option):
+    def __init__(self, value):
+        super(str(value), value)
+
 def query_option(options: list[Option], allow_exit: bool = False, show_list: bool = True):
     ln = len(options)
     
