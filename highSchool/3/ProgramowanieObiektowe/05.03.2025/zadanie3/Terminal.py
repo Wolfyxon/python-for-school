@@ -3,7 +3,7 @@ from Passenger import *
 from Aircraft import *
 
 class Terminal:
-    def __init__(self, flights: list[Flight], passengers: list[Passenger] aircrafts: list[Aircraft]):
+    def __init__(self, flights: list[Flight], passengers: list[Passenger], aircrafts: list[Aircraft]):
         self.flights = flights
         self.passenger = passengers
         self.aircrafts = aircrafts
