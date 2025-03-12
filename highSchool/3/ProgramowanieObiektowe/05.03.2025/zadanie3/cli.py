@@ -1,11 +1,9 @@
 class Option:
-    def __init__(self, name: str):
+    def __init__(self, name: str, value):
         self.name = name
+        self.value = value
 
-    def run():
-        raise "Not implemented"
-
-def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True) -> Option:
+def query_option(options: list[Option], allow_exit: bool = False, show_list: bool = True):
     ln = len(options)
     
     for i in range(ln):
@@ -24,9 +22,19 @@ def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True
         return menu(options, allow_exit, False)
 
     opt = options[selected - 1]
-    opt.run()
 
-    return opt
+    return opt.value
+
+def menu(options: list[Option], allow_exit: bool = False, show_list: bool = True) -> Option:
+    for i in options:
+        assert callable(i.value), "All options must contain callable functions"
+
+    value = query_option(options, allow_exit, show_list)
+
+    if value:
+        value()
+
+    return value
 
 def input_int(text: str) -> int:
     try:

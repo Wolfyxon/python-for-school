@@ -8,16 +8,14 @@ airport = Airport([
     Terminal([], [], [])
 ])
 
-class ResserveOption(Option):
-    def run(self):
-        
-        pass
+def reserve():
+    print("Rezerwacja")
 
 def main():
     print("Witaj w lotnisku")
 
     main_options = [
-        ResserveOption("Zarezerwuj bilet"),
+        Option("Zarezerwuj bilet", reserve),
     ]
 
     if not menu(main_options, True):
