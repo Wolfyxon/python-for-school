@@ -56,7 +56,7 @@ class Flight:
             print("Niepoprawny numer miejsca")
             return query_reserve_seat(False)
 
-        if get_seat(sid):
+        if self.get_seat(sid):
             print("To miejsce jest zajęte")
             return query_reserve_seat(False)
 
