@@ -16,6 +16,9 @@ class Flight:
 
         self.occupied_seats = []
 
+    def __str__(self) -> str:
+        return f"{self.course} | {self.id} {self.departure} -> {self.arrival}"
+
     def get_seat(self, id: int) -> Seat:
         for i in self.occupied_seats:
             if i.id == id:
