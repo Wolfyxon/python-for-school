@@ -32,7 +32,12 @@ class Airport:
 
         return res
 
-    def query_passenger(self) -> Passenger:
+    def get_terminal_of_flight(self, flight: Flight) -> Terminal:
+        for i in self.terminals:
+            if flight in i.flights:
+                return i
+
+    def query_passenger(self, target_terminal: Terminal = None) -> Passenger:
         options = []
 
         for i in self.get_passengers():
@@ -51,7 +56,9 @@ class Airport:
             ticket_class = input_int("Podaj klasę biletu: ")
 
             p = Passenger(name1, name2, doc_id, ticket_class)
-            self.add_passenger(p)
+            
+            if target_terminal:
+                target_terminal.add_passenger(p)
 
             return p
         
