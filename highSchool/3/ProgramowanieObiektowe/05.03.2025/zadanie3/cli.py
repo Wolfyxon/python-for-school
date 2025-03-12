@@ -7,6 +7,14 @@ class OptionStr(Option):
     def __init__(self, value):
         super(str(value), value)
 
+def query_option_str(options: list[], allow_exit: bool = False, show_list: bool = True):
+    opts = []
+
+    for i in options:
+        opts.append(OptionStr(i))
+
+    return query_option(opts, allow_exit, show_list)
+
 def query_option(options: list[Option], allow_exit: bool = False, show_list: bool = True):
     ln = len(options)
     
