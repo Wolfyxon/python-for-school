@@ -1,7 +1,12 @@
-from Airport import Airport
+from Airport import *
+from Terminal import *
 from cli import *
 
-airport = Airport()
+
+airport = Airport([
+    Terminal([], [], []),
+    Terminal([], [], [])
+])
 
 class ResserveOption(Option):
     def run(self):
@@ -11,8 +16,13 @@ class ResserveOption(Option):
 def main():
     print("Witaj w lotnisku")
 
-    menu([
-        ResserveOption("Zarezerwuj bilet")
-    ])
+    main_options = [
+        ResserveOption("Zarezerwuj bilet"),
+    ]
+
+    if not menu(main_options, True):
+        return
+
+    main()
 
 main()
