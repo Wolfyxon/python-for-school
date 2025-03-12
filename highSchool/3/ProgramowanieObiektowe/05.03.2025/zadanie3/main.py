@@ -4,8 +4,12 @@ from cli import *
 
 
 airport = Airport([
-    Terminal([], [], []),
-    Terminal([], [], [])
+    Terminal([], [], [
+        Aircraft("Boeing 737", "airbus", 20)
+    ]),
+    Terminal([], [], [
+        Aircraft("Boeing 707", "airbus", 20)
+    ])
 ])
 
 def reserve():
