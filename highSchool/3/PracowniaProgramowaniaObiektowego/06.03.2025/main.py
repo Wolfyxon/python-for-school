@@ -12,16 +12,16 @@ def bubble_sort(nums: list[float]) -> list[float]:
     return nums
 
 def select_sort(nums: list[float]) -> list[float]:
-    ln = len(nums) - 1
+    ln = len(nums)
 
     for i in range(ln):
-        min_i = 0
+        min_i = i
 
-        for j in range(i, ln):
+        for j in range(i + 1, ln):
             if nums[j] < nums[min_i]:
                 min_i = j
-        print(min_i)
-        #nums[i], nums[min_i + 1] = nums[min_i + 1], nums[i]
+        
+        nums[i], nums[min_i] = nums[min_i], nums[i]
 
     return nums
 
