@@ -37,6 +37,9 @@ class Airport:
             if flight in i.flights:
                 return i
 
+    def query_terminal(self, required: bool = False) -> Terminal:
+        return query_option_str(self.terminals, required)
+
     def query_new_passenger(self, terminal: Terminal) -> Passenger:
         name1 = input("Podaj imię: ")
         name2 = input("Podaj nazwisko: ")
