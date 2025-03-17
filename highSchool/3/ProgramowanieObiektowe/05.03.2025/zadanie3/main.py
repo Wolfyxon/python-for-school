@@ -49,11 +49,21 @@ def reserve():
     print("Lot:", flight)
     print("Samolot:", flight.aircraft)
 
+def create_passenger():
+    t = airport.query_terminal()
+    if not t: return
+
+    p = airport.query_new_passenger(t)
+
+    if p:
+        print("Pasażer dodany pomyślnie")
+
 def main():
     print("Witaj w lotnisku")
 
     main_options = [
         Option("Zarezerwuj bilet", reserve),
+        Option("Zarejestruj pasażera", create_passenger)
     ]
 
     if not menu(main_options, True):
