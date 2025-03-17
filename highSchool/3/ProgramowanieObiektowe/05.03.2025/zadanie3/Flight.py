@@ -25,7 +25,7 @@ class Flight:
                 return id
 
     def get_available_seat_count(self) -> int:
-        return self.seat_count - len(self.occupied_seats)
+        return self.aircraft.seat_count - len(self.occupied_seats)
 
     def query_reserve_seat(self, show_menu: bool = True) -> Seat:
         seat_count = self.aircraft.seat_count
