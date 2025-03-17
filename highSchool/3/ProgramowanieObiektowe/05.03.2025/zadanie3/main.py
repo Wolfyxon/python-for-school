@@ -30,15 +30,17 @@ airport = Airport([
 ])
 
 def reserve():
-    print("Wybierz lot")
 
+    print("Wybierz lot")
     flight = query_option_str(airport.get_flights(), True)
     term = airport.get_terminal_of_flight(flight)
     if not flight: return
 
+    print("Wybierz pasażera")
     pas = airport.query_passenger(term)
     if not pas: return
 
+    print("Wybierz siedzenie")
     seat = flight.query_reserve_seat()
     if not seat: return
     
