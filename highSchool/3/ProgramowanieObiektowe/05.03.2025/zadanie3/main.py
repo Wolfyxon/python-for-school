@@ -50,6 +50,7 @@ def reserve():
     print("Samolot:", flight.aircraft)
 
 def create_passenger():
+    print("Wybierz terminal:")
     t = airport.query_terminal()
     if not t: return
 
