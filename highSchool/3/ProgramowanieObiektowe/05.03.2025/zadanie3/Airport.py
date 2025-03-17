@@ -37,6 +37,19 @@ class Airport:
             if flight in i.flights:
                 return i
 
+    def query_new_passenger(self, terminal: Terminal) -> Passenger:
+        name1 = input("Podaj imię: ")
+        name2 = input("Podaj nazwisko: ")
+        doc_id = input_int("Podaj nr dokumentu: ")
+        ticket_class = input_int("Podaj klasę biletu: ")
+
+        p = Passenger(name1, name2, doc_id, ticket_class)
+        
+        if terminal:
+            terminal.add_passenger(p)
+
+        return p
+
     def query_passenger(self, target_terminal: Terminal = None) -> Passenger:
         options = []
 
@@ -50,16 +63,6 @@ class Airport:
             return
 
         if res == "new":
-            name1 = input("Podaj imię: ")
-            name2 = input("Podaj nazwisko: ")
-            doc_id = input_int("Podaj nr dokumentu: ")
-            ticket_class = input_int("Podaj klasę biletu: ")
-
-            p = Passenger(name1, name2, doc_id, ticket_class)
-            
-            if target_terminal:
-                target_terminal.add_passenger(p)
-
-            return p
+            return self.query_new_passenger(target_terminal)
         
         return res
