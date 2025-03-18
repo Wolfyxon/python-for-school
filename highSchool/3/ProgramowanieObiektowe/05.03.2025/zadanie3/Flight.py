@@ -27,24 +27,29 @@ class Flight:
     def get_available_seat_count(self) -> int:
         return self.aircraft.seat_count - len(self.occupied_seats)
 
+    def print_seats(self):
+        seat_count = self.aircraft.seat_count
+
+        print(f"Dostępne miejsca")
+        max_ln = len(str(seat_count))
+        menu = ""
+
+        for i in range(seat_count):
+            if i % 10 == 0:
+                menu += "\n"
+
+            if self.get_seat(i):
+                menu += f"[{" " * max_ln}]"
+            else:
+                menu += f"[{i + 1}{" " * (max_ln - len(str(i)))}]"
+
+        print(menu)
+
     def query_reserve_seat(self, show_menu: bool = True) -> Seat:
         seat_count = self.aircraft.seat_count
         
         if show_menu:
-            print(f"Dostępne miejsca")
-            max_ln = len(str(seat_count))
-            menu = ""
-
-            for i in range(seat_count):
-                if i % 10 == 0:
-                    menu += "\n"
-
-                if self.get_seat(i):
-                    menu += f"[{" " * max_ln}]"
-                else:
-                    menu += f"[{i + 1}{" " * (max_ln - len(str(i)))}]"
-
-            print(menu)
+            self.print_seats()
             print("Wybierz miejsce lub wpisz -1 by anulować:")
 
         sid = input_int("> ") - 1
