@@ -54,3 +54,6 @@ def input_int(text: str) -> int:
     except ValueError:
         print("Niepoprawna liczba")
         return input_int(text) 
+
+def input_wait():
+    input("Wciśnij enter by kontynuować...")
