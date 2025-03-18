@@ -56,4 +56,4 @@ def input_int(text: str) -> int:
         return input_int(text) 
 
 def input_wait():
-    input("Wciśnij enter by kontynuować...")
+    input("\nWciśnij enter by kontynuować...")
