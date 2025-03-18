@@ -71,13 +71,25 @@ def move_passenger():
     airport.move_passenger_to_terminal(p, t)
     print("Pasażer przeniesiony pomyślnie")
 
+def flight_info():
+    print("Wybierz lot")
+    f = airport.query_flight()
+    if not f: return
+    
+    print(f"ID lotu: {f.id}")
+    print(f"Trasa: {f.course}")
+    print(f"Przylot: {f.arrival}")
+    print(f"Odlot: {f.departure}")
+    print(f"Samolot: {f.aircraft}")
+
 def main():
     print("Witaj w lotnisku")
 
     main_options = [
         Option("Zarezerwuj bilet", reserve),
         Option("Zarejestruj pasażera", create_passenger),
-        Option("Przenieś pasażera na inny terminal", move_passenger)
+        Option("Przenieś pasażera na inny terminal", move_passenger),
+        Option("Wyświetl informacje o locie", flight_info)
     ]
 
     if not menu(main_options, True):
