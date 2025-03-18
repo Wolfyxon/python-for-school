@@ -31,6 +31,14 @@ class Airport:
             res += i.passengers
 
         return res
+    
+    def move_passenger_to_terminal(self, passenger: Passenger, terminal: Terminal):
+        current_terminal = self.get_terminal_of_passenger(passenger)
+
+        if current_terminal:
+            current_terminal.passengers.remove(passenger)
+
+        terminal.passengers.append(passenger)
 
     def get_terminal_of_flight(self, flight: Flight) -> Terminal:
         for i in self.terminals:
