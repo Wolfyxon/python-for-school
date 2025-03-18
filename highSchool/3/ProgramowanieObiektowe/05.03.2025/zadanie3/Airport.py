@@ -74,12 +74,10 @@ class Airport:
 
         if target_terminal:
             options.append(Option("< Nowy >", "new"))
-            res = query_option(options)
+        
+        res = query_option(options, target_terminal == None)
 
-            if not res:
-                return
-
-            if res == "new":
-                return self.query_new_passenger(target_terminal)
+        if res == "new":
+            return self.query_new_passenger(target_terminal)
         
         return res
