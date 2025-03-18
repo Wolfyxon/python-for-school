@@ -42,12 +42,12 @@ class Flight:
                 if self.get_seat(i):
                     menu += f"[{" " * max_ln}]"
                 else:
-                    menu += f"[{i}{" " * (max_ln - len(str(i)))}]"
+                    menu += f"[{i + 1}{" " * (max_ln - len(str(i)))}]"
 
             print(menu)
             print("Wybierz miejsce lub wpisz -1 by anulować:")
 
-        sid = input_int("> ")
+        sid = input_int("> ") - 1
 
         if sid == -1:
             return False
