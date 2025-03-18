@@ -29,9 +29,8 @@ class Flight:
 
     def print_seats(self):
         seat_count = self.aircraft.seat_count
-
-        print(f"Dostępne miejsca")
         max_ln = len(str(seat_count))
+
         menu = ""
 
         for i in range(seat_count):
@@ -49,6 +48,7 @@ class Flight:
         seat_count = self.aircraft.seat_count
         
         if show_menu:
+            print("Dostępne miejsca:")
             self.print_seats()
             print("Wybierz miejsce lub wpisz -1 by anulować:")
 
