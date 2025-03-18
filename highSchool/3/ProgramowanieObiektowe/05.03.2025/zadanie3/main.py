@@ -49,6 +49,8 @@ def reserve():
     print("Lot:", flight)
     print("Samolot:", flight.aircraft)
 
+    input_wait()
+
 def create_passenger():
     print("Wybierz terminal:")
     t = airport.query_terminal()
@@ -82,6 +84,8 @@ def flight_info():
     print(f"Odlot: {f.departure}")
     print(f"Samolot: {f.aircraft}")
 
+    input_wait()
+
 def main():
     print("Witaj w lotnisku")
 
@@ -94,6 +98,8 @@ def main():
 
     if not menu(main_options, True):
         return
+    
+    print("")
 
     main()
 
