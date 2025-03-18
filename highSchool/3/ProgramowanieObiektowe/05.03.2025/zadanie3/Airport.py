@@ -37,6 +37,11 @@ class Airport:
             if flight in i.flights:
                 return i
 
+    def get_terminal_of_passenger(self, passenger: Passenger) -> Terminal:
+            for i in self.terminals:
+                if passenger in i:
+                    return i
+    
     def query_terminal(self, required: bool = False) -> Terminal:
         return query_option_str(self.terminals, not required)
 
