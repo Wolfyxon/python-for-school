@@ -18,7 +18,7 @@ airport = Airport([
        plane1
     ]),
     Terminal([
-            Flight(
+        Flight(
             4321, "Warszawa -> Waszyngton", 
             datetime(2025, 4, 5, 15, 00), 
             datetime(2025, 5, 5, 6, 10),
