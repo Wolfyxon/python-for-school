@@ -84,6 +84,9 @@ def flight_info():
     print(f"Odlot: {f.departure}")
     print(f"Samolot: {f.aircraft}")
 
+    print(f"\nDostępne miejsca: ({f.get_available_seat_count()} / {f.aircraft.seat_count}):")
+    f.print_seats()
+
     input_wait()
 
 def main():
