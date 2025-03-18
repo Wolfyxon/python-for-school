@@ -41,7 +41,7 @@ def reserve():
     if not pas: return
 
     print("Wybierz siedzenie")
-    seat = flight.query_reserve_seat()
+    seat = flight.query_reserve_seat(pas)
     if not seat: return
     
     print("Zarezerwowano pomyślnie:")
@@ -105,5 +105,8 @@ def main():
     print("")
 
     main()
+
+p1 = Passenger("Kowal", "Janoski", 1, 9)
+
 
 main()

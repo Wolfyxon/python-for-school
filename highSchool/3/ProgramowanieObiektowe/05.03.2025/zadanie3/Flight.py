@@ -1,10 +1,12 @@
 from datetime import datetime
 from Aircraft import *
+from Passenger import *
 from cli import *
 
 class Seat:
-    def __init__(self, id: int):
+    def __init__(self, id: int, passenger: Passenger):
         self.id = id
+        self.passenger = passenger
 
 class Flight:
     def __init__(self, id: int, course: str, departure: datetime, arrival: datetime, aircraft: Aircraft):
@@ -44,7 +46,13 @@ class Flight:
 
         print(menu)
 
-    def query_reserve_seat(self, show_menu: bool = True) -> Seat:
+    def reserve_seat(self, passenger: Passenger, seat_id: int) -> Seat:
+        seat = Seat(seat_id, passenger)
+        self.occupied_seats.append(seat)
+
+        return seat
+
+    def query_reserve_seat(self, passenger: Passenger, show_menu: bool = True) -> Seat:
         seat_count = self.aircraft.seat_count
         
         if show_menu:
@@ -65,9 +73,6 @@ class Flight:
             print("To miejsce jest zajęte")
             return self.query_reserve_seat(False)
 
-        seat = Seat(sid)
-        self.occupied_seats.append(seat)
-
-        return seat
+        return self.reserve_seat(passenger, sid)
 
         
