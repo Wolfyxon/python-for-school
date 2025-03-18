@@ -59,12 +59,25 @@ def create_passenger():
     if p:
         print("Pasażer dodany pomyślnie")
 
+def move_passenger():
+    print("Wybierz pasażera:")
+    p = airport.query_passenger()
+    if not p: return
+
+    print("Wybierz docelowy terminal:")
+    t = airport.query_terminal()
+    if not t: return
+
+    airport.move_passenger_to_terminal(p, t)
+    print("Pasażer przeniesiony pomyślnie")
+
 def main():
     print("Witaj w lotnisku")
 
     main_options = [
         Option("Zarezerwuj bilet", reserve),
-        Option("Zarejestruj pasażera", create_passenger)
+        Option("Zarejestruj pasażera", create_passenger),
+        Option("Przenieś pasażera na inny terminal", move_passenger)
     ]
 
     if not menu(main_options, True):
