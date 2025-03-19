@@ -107,9 +107,11 @@ def main():
     main()
 
 p1 = Passenger("Kowal", "Janoski", 1, 9)
+airport.terminals[0].add_passenger(p1)
 airport.terminals[0].flights[0].reserve_seat(p1, 5)
 
 p2 = Passenger("Majonez", "Kielecki", 2, 3)
+airport.terminals[1].add_passenger(p2)
 airport.terminals[1].flights[0].reserve_seat(p2, 10)
 
 
