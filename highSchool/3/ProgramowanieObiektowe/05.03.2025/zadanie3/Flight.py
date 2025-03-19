@@ -58,7 +58,7 @@ class Flight:
         if show_menu:
             print("Dostępne miejsca:")
             self.print_seats()
-            print("Wybierz miejsce lub wpisz -1 by anulować:")
+            print("Wybierz miejsce lub wpisz 0 by anulować:")
 
         sid = input_int("> ") - 1
 
