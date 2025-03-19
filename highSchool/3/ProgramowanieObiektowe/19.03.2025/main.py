@@ -30,6 +30,8 @@ class BankAccount:
     def depozyt(self, kwota: float) -> bool:
         global local_balance
 
+        print(f"Wpłacanie {kwota} zł na {self}")
+
         if local_balance < kwota:
             print("Za mało środków")
             return False
@@ -42,6 +44,8 @@ class BankAccount:
 
     def wyplata(self, kwota: float) -> bool:
         global local_balance
+
+        print(f"Wypłacanie {kwota} zł z {self}")
 
         if self.balance < kwota:
             print("Za mało środków na koncie")
