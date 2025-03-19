@@ -1,5 +1,7 @@
 body, html {
     font-family: Helvetica;
+    margin: 0;
+    padding: 0;
 }
 
 header, footer {
@@ -7,6 +9,10 @@ header, footer {
     color: white;
     height: 30px;
     text-align: center;
+}
+
+header h2 {
+    margin: 0;
 }
 
 #main {
