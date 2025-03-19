@@ -1,0 +1,51 @@
+body, html {
+    font-family: Helvetica;
+}
+
+header, footer {
+    background-color: rgb(70, 130, 180);
+    color: white;
+    height: 30px;
+    text-align: center;
+}
+
+#main {
+    background-color: rgb(176, 196, 222);
+    padding: 50px;
+    text-align: center;
+}
+
+#main img {
+    height: 500px;
+    padding: 3px;
+    outline:  1px dashed blue;
+    border-radius: 10px;
+}
+
+#bottom-container {
+    height: 300px;
+}
+
+#bottom-container > * {
+    background-color: rgb(70, 130, 180);
+    float: left;
+    height: 300px;
+    display: block;
+}
+
+#gallery {
+    width: 80%;
+}
+
+#gallery img {
+    height: 40%;
+}
+
+#gallery img:hover {
+    outline: 1px solid white;
+}
+
+#stats {
+    width: 20%;
+    color: white;
+}
