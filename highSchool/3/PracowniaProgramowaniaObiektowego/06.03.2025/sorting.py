@@ -52,7 +52,51 @@ def insertion_sort(nums: list[float]):
 
     return nums
 
+
+def merge_sort(nums: list[float]) -> list[float]:
+    ln = len(nums)
+    
+    if ln <= 1:
+        return nums
+    
+    half = ln // 2
+    left = nums[:half]
+    right = nums[half:]
+
+    merge_sort(left)
+    merge_sort(right)
+
+    i = 0
+    j = 0
+    k = 0
+
+    left_len = len(left)
+    right_len = len(right)
+
+    while i < left_len and j < right_len:
+        if left[i] < right[j]:
+            nums[k] = left[i]
+            i += 1
+        else:
+            nums[k] = right[j]
+            j += 1
+        k += 1
+
+    while i < left_len:
+        nums[k] = left[i]
+        i += 1
+        k += 1
+
+    while j < right_len:
+        nums[k] = right[j]
+        j += 1
+        k += 1
+
+    return nums
+
+
 print(bubble_sort([2, 5, 3, 1]))
 print(select_sort_min([1, 9, 5, 3, 0, 1]))
 print(select_sort_max([1, 6, 3, 3, 2, 9]))
 print(insertion_sort([4, 2, 1, 3, 8, 1]))
+print(merge_sort([4, 2, 1, 4, 5]))
