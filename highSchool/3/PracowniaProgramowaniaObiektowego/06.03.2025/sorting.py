@@ -39,8 +39,20 @@ def select_sort_max(nums: list[float]) -> list[float]:
 
     return nums
 
+def insertion_sort(nums: list[float]):
+    for i in range(1, len(nums)):
+        current = nums[i]
+        j = i - 1
 
+        while j >= 0 and nums[j] > current:
+            nums[j + 1] = nums[j]
+            j -= 1
+
+        nums[j + 1] = current
+
+    return nums
 
 print(bubble_sort([2, 5, 3, 1]))
 print(select_sort_min([1, 9, 5, 3, 0, 1]))
 print(select_sort_max([1, 6, 3, 3, 2, 9]))
+print(insertion_sort([4, 2, 1, 3, 8, 1]))
