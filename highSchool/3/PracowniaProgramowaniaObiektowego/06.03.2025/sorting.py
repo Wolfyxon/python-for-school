@@ -63,15 +63,15 @@ def merge_sort(nums: list[float]) -> list[float]:
     left = nums[:half]
     right = nums[half:]
 
+    left_len = len(left)
+    right_len = len(right)
+
     merge_sort(left)
     merge_sort(right)
 
     i = 0
     j = 0
     k = 0
-
-    left_len = len(left)
-    right_len = len(right)
 
     while i < left_len and j < right_len:
         if left[i] < right[j]:
