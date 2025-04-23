@@ -6,12 +6,12 @@ Twoim zadaniem jest zaimplementować hierarchię klas przy użyciu dziedziczenia
     "Cześć! Jestem [imię], mam [wiek] lat i jestem [gatunek]."
 Stwórz klasy pochodne:
     Ptak:
-    dodatkowy atrybut: czy_lata (bool)
-    metoda latanie(), która wypisze "Lecę!" jeśli czy_lata=True, w przeciwnym razie "Nie umiem latać."
-Ssaki:
-    dodatkowy atrybut: czy_drapieżnik (bool)
-    metoda poluj(), która wypisze "Poluję na ofiarę!" jeśli czy_drapieżnik=True, w przeciwnym razie "Nie jestem drapieżnikiem."
-    Utwórz po jednym obiekcie z każdej klasy pochodnej i przetestuj działanie metod.
+        dodatkowy atrybut: czy_lata (bool)
+        metoda latanie(), która wypisze "Lecę!" jeśli czy_lata=True, w przeciwnym razie "Nie umiem latać."
+    Ssaki:
+        dodatkowy atrybut: czy_drapieżnik (bool)
+        metoda poluj(), która wypisze "Poluję na ofiarę!" jeśli czy_drapieżnik=True, w przeciwnym razie "Nie jestem drapieżnikiem."
+        Utwórz po jednym obiekcie z każdej klasy pochodnej i przetestuj działanie metod.
 
 Przykład użycia:
 
