@@ -7,6 +7,6 @@ assert dodaj(4, 4) == 8
 #assert dodaj(7, 3) == 5
 
 print("Wynik:", dodaj(
-    input("Podaj A: "),
-    input("Podaj B: "),
+    float(input("Podaj A: ")),
+    float(input("Podaj B: ")),
 ))
