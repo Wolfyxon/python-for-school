@@ -3,11 +3,13 @@ class Crypt:
     a_index = ord('a')
     letter_count = ord('z') + 1
 
+    """Sprawdza czy dany znak jest literą"""
     def is_letter(self, ch: chr):
         code = ord(ch)
         
         return code >= self.a_index and code <= self.letter_count
 
+    """Przesuwa literę w alfebecie"""
     def offset_letter(self, ch: chr, offset: int) -> chr:
         index = ord(ch) - self.a_index
         max_index = self.letter_count - self.a_index
@@ -15,6 +17,7 @@ class Crypt:
 
         return chr(self.a_index + (new_index % max_index) % max_index)
 
+    """Przesuwa litery w alfabecie w podanym tekscie. Tworzy szyfr cezara"""
     def offset_str(self, text: str, offset: int) -> str:
         res = ""
         
@@ -26,6 +29,7 @@ class Crypt:
 
         return res
 
+"""Sprawdza poprawność wyników"""
 def run_tests():
     crypt = Crypt()
 
@@ -35,6 +39,7 @@ def run_tests():
     assert crypt.offset_str("abc", 29) == "def"
     assert crypt.offset_str("ab cd", 2) == "cd ef"
 
+"""Punkt wejściowy programu"""
 def main():
     text = input("Podaj tekst: ")
 
