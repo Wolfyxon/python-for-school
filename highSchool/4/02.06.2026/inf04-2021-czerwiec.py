@@ -30,9 +30,28 @@ znaczące nazwy zmiennych i funkcji.
 """
 
 class Table:
+    """
+    /********************************************************
+    * nazwa funkcji: __init__
+    * parametry wejściowe:
+        value - (opcjonalny) Wartość dla tablicy
+    * wartość zwracana: brak
+    * autor: 1234567890
+    * ****************************************************/
+    """
     def __init__(self, value = []) -> None:
         self.value = value
 
+    """
+    /********************************************************
+    * nazwa funkcji: __max_idx
+    * parametry wejściowe:
+        start - indeks początkowy
+    * wartość zwracana:
+        int - indeks najwyższej wartości
+    * autor: 1234567890
+    * ****************************************************/
+    """
     def __max_idx(self, start: int = 0) -> int:
         max_i = start
 
@@ -42,7 +61,15 @@ class Table:
 
         return max_i
 
-    def sort(self):
+    """
+    /********************************************************
+    * nazwa funkcji: sort
+    * parametry wejściowe: brak
+    * wartość zwracana: brak
+    * autor: 1234567890
+    * ****************************************************/
+    """
+    def sort(self) -> None:
         for i in range(len(self.value)):
             min_i = self.__max_idx(i)
 
@@ -51,6 +78,14 @@ class Table:
                 self.value[i]
             )
 
+    """
+    /********************************************************
+    * nazwa funkcji: sort
+    * parametry wejściowe: brak
+    * wartość zwracana: brak
+    * autor: 1234567890
+    * ****************************************************/
+    """
     def print(self) -> None:
         for i in self.value:
             print(i, " ", end = "")
