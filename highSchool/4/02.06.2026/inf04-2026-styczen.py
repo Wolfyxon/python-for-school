@@ -52,6 +52,7 @@ Uwaga: W języku Python należy utworzyć jeden konstruktor z domyślną wartoś
 """
 
 import random
+import unittest
 
 class Kosc:
     instances = 0
@@ -75,7 +76,10 @@ class Kosc:
     def block(self) -> None:
         self.available = False
 
-    def throw() -> None:
+    def throw(self) -> None:
+        if not self.available:
+            return
+
         self.value = random.randint(1, 6)
         self.file_idx = self.value
 
@@ -84,19 +88,39 @@ class Kosc:
 
         return names[self.value]
 
+class TestKosc(unittest.TestCase):
+    def test_throw(self) -> None:
+        k = Kosc()
+        k.throw()
+        self.assertTrue(k.value > 0 and k.value <= 6)
+
+    def test_blocked(self) -> None:
+        init_v = 4
+        k = Kosc(init_v)
+        
+        k.block()
+        k.throw()
+
+        self.assertEqual(k.value, init_v)
+
 def print_info(last_die: Kosc) -> None:
     print(f"Instancje Kosc: {Kosc.instances}")
     print(f"Liczba oczek: {last_die.value} ({last_die.value_string()})")
     print(f"Nazwa pliku obrazu: {last_die.file_names[last_die.file_idx]}")
     print()
 
-print("Kość A")
-kosc_a = Kosc()
-print_info(kosc_a)
+def main() -> None:
+    unittest.main()
 
-b_value = int(input("Podaj wartość dlam kości B: "))
-print()
+    print("Kość A")
+    kosc_a = Kosc()
+    print_info(kosc_a)
 
-print("Kość B")
-kosc_b = Kosc(b_value)
-print_info(kosc_b)
+    b_value = int(input("Podaj wartość dlam kości B: "))
+    print()
+
+    print("Kość B")
+    kosc_b = Kosc(b_value)
+    print_info(kosc_b)
+
+main()
